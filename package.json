@@ -11,10 +11,16 @@
   "author": "Kenneth Yue",
   "license": "LGPL-3.0",
   "devDependencies": {
-    "electron": "^9.1.0",
-    "electron-builder": "^22.8.0"
+    "electron": "^9.4.4",
+    "electron-builder": "^22.8.0",
+    "electron-chromedriver": "^16.0.0"
   },
   "dependencies": {
+    "chromium": "^3.0.3",
+    "puppeteer": "^10.4.0",
+    "puppeteer-core": "^11.0.0",
+    "puppeteer-in-electron": "^3.0.5",
+    "update-electron-app": "^2.0.1",
     "whatsapp-web.js": "^1.15.1"
   }
 }
