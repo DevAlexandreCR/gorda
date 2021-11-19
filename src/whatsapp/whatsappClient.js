@@ -1,6 +1,6 @@
 import fs from 'fs'
-import { main } from './initBrowser'
-import { Client } from 'whatsapp-web.js'
+import main from './initBrowser'
+import Client from 'whatsapp-web.js'
 
 const SESSION_FILE_PATH = "./session.json"
 const browser = main()
@@ -26,8 +26,8 @@ client.on("authenticated", (session) => {
       }
     })
   })
+  client.initialize()
 }
 
-client.initialize()
 
   module.exports = init
