@@ -1,9 +1,9 @@
-const { session } = require('electron');
+// const { session } = require('electron');
 
-function clearServiceWorkers() {
-  const ses = session.defaultSession;
-  ses.flushStorageData();
-  ses.clearStorageData({ storages: ['serviceworkers'] });
-}
+// function clearServiceWorkers() {
+//   const ses = session.defaultSession;
+//   ses.flushStorageData();
+//   ses.clearStorageData({ storages: ['serviceworkers'] });
+// }
 
-module.exports = { clearServiceWorkers };
+// module.exports = { clearServiceWorkers };

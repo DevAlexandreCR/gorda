@@ -13,6 +13,7 @@
     "electron-devtools-installer": "^3.2.0"
   },
   "dependencies": {
+    "puppeteer": "^10.4.0",
     "whatsapp-web.js": "^1.15.1"
   }
 }

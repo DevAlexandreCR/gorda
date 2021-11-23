@@ -1,10 +1,8 @@
 const { app } = require('electron')
 const { loadWhatsApp } = require('./src/window');
 const { createTrayIconFor } = require('./src/tray');
-const { clearServiceWorkers } = require('./src/session');
 
 let window;
-let tray;
 
 const isFirstInstance = app.requestSingleInstanceLock();
 

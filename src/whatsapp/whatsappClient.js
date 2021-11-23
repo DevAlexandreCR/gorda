@@ -1,8 +1,8 @@
 const fs = require('fs')
 // const main = require('../../src/whatsapp/initBrowser')
 const { Client } = require('whatsapp-web.js')
-
 const puppeteer = require('puppeteer')
+
 
 async function main() {
   return await puppeteer.launch({
@@ -14,37 +14,45 @@ async function main() {
   })
 }
 
-const SESSION_FILE_PATH = "./sessions/session.json"
+
 
 async  function init() {
-    let sessionData;
-if (fs.existsSync(SESSION_FILE_PATH)) {
-    sessionData = require(SESSION_FILE_PATH)
-}
+
+  const SESSION_FILE_PATH = './session.json';
+
+  let sessionCfg;
+  if (fs.existsSync(SESSION_FILE_PATH)) {
+      sessionCfg = require(SESSION_FILE_PATH);
+  }
+
 const browser = await main()
 
 const client = new Client({
-  session: sessionData,
+  session: sessionCfg,
   puppeteer: {
-    browserWSEndpoint: browser.wsEndpoint()
+    browserWSEndpoint: browser.wsEndpoint(),
   }
 });
 
-client.on("authenticated", (session) => {
-  sessionData = session;
+client.on('authenticated', (session) => {
+  console.log('AUTHENTICATED', session);
+  sessionCfg=session;
   fs.writeFile(SESSION_FILE_PATH, JSON.stringify(session), function (err) {
       if (err) {
-          console.error(err)
+          console.error(err);
       }
-    })
-  })
+  });
+});
 
   client.on('message', msg => {
     if (msg.body === 'hola') {
       client.sendMessage(msg.from, 'hola bebe')
     }
   })
-  await client.initialize()
+ await client.initialize()
 }
 
-document.getElementById("myButton").addEventListener("click", init);
+module.exports = { init }
+
+
+

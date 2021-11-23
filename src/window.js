@@ -8,7 +8,7 @@ function loadWhatsApp() {
     icon: path.join(__dirname, '../assets/512x512.png'),
     webPreferences: {
       devTools: true,
-      contextIsolation: false,
+      contextIsolation: true,
       nodeIntegration: true,
       nodeIntegrationInWorker: true,
       enableRemoteModule: true,
