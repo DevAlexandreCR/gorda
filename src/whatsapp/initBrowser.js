@@ -9,5 +9,4 @@ async function main() {
     headless: false,
   })
   }
-
   module.exports = main
