@@ -1,5 +1,5 @@
 const fs = require('fs')
-const main = require('../../src/whatsapp/initBrowser')
+const main = require('./initBrowser')
 const { Client } = require('whatsapp-web.js')
 
 async  function init() {
